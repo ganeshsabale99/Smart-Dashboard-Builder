@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import {
+  DashboardProvider,
+  DashboardContext,
+} from "./context/DashboardContext";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./components/Dashboard";
+import "./styles/styles.css";
 
-function App() {
+function InnerApp() {
+  const { setWidgets, editMode, setEditMode, theme, setTheme } =
+    useContext(DashboardContext);
+
+  const handleAddWidget = (type) => {
+    setWidgets((prev) => [...prev, { id: Date.now(), type }]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`app ${theme}`}>
+      <Sidebar onAdd={handleAddWidget} />
+      <Dashboard />
+      <div className="controls">
+        <button onClick={() => setEditMode(!editMode)}>
+          {editMode ? "View Mode" : "Edit Mode"}
+        </button>
+        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+          {theme === "dark" ? "Light Mode" : "Dark Mode"}
+        </button>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <DashboardProvider>
+      <InnerApp />
+    </DashboardProvider>
+  );
+}

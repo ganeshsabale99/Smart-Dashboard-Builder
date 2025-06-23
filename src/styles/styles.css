@@ -1,0 +1,9 @@
+body { margin: 0; font-family: sans-serif; }
+.app { display: flex; height: 100vh; }
+.sidebar { width: 200px; padding: 1rem; background: #f4f4f4; }
+.dashboard-grid { flex: 1; display: flex; flex-wrap: wrap; gap: 1rem; padding: 1rem; }
+.widget-card { border: 1px solid #ccc; padding: 1rem; background: white; width: 200px; }
+.controls { position: fixed; bottom: 10px; left: 220px; }
+
+.app.dark { background: #1e1e1e; color: white; }
+.app.dark .widget-card { background: #2e2e2e; color: white; }
