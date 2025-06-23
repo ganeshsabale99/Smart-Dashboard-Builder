@@ -2,7 +2,7 @@ body { margin: 0; font-family: sans-serif; }
 .app { display: flex; height: 100vh; }
 .sidebar { width: 200px; padding: 1rem; background: #f4f4f4; }
 .dashboard-grid { flex: 1; display: flex; flex-wrap: wrap; gap: 1rem; padding: 1rem; }
-.widget-card { border: 1px solid #ccc; padding: 1rem; background: white; width: 200px; }
+.widget-card { border: 1px solid #ccc; padding: 1rem; background: white; border-radius: "25px"; width: 200px; box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;}
 .controls { position: fixed; bottom: 10px; left: 220px; }
 
 .app.dark { background: #1e1e1e; color: white; }
